@@ -60,7 +60,7 @@ class CallbackInput(RestInput):
 
         @callback_webhook.route("/webhook", methods=['POST'])
         async def webhook(request):
-            sender_id = self._extract_sender(request)
+            sender_id = await self._extract_sender(request)
             text = self._extract_message(request)
 
             collector = CallbackOutput(self.callback_endpoint)
